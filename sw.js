@@ -40,3 +40,22 @@ self.addEventListener('fetch', (e) => {
     }
   })());
 });
+
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'send-message') {
+    event.waitUntil(sendToServer());
+  }
+});
+
+const sendToServer = async () => {
+  try {
+    const outbox = await loadData('outbox');
+    console.log('outbox', outbox);
+    outbox.map((message) => {
+      saveGreeting(message);
+    });
+    clearData('outbox');
+  } catch (e) {
+    console.error(e.message);
+  }
+}
