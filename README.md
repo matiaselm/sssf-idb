@@ -1,4 +1,4 @@
-##[Site](https://users.metropolia.fi/~matiasjj/indexedDB/)
+# [The Site](https://users.metropolia.fi/~matiasjj/indexedDB/)
 
 * Insert your name to line 7 in main.js
 * Save greeting from the form to IndexedDB
